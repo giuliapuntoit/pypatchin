@@ -13,7 +13,7 @@ setup(
     maintainer="Giulia Milan",
     maintainer_email="giuliapuntoit96@gmail.com",
     url="https://github.com/giuliapuntoit/pypatch",
-    download_url='https://github.com/...',
+    download_url='https://github.com/giuliapuntoit/pypatch.git',
     packages=['pypatch'],
     install_requires=['diff_match_patch']
 )

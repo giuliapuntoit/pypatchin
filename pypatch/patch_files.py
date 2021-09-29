@@ -78,7 +78,7 @@ def apply_patch_to_file(dir_to_patch, file_to_patch, patch_dir, patch_file, patc
 
 def compute_and_save_patches_for_list_of_files(list_of_files, original_dir, latest_dir, patches_dir):
     # Cerca lista di file in original_dir e latest_dir, calcola i patches e li salva con nomi analoghi dentro patched_file_dir
-    # CHECK CHE LE CARTELLE ESISTANO DENTRO patches_dir ALTRIMENTI LE CREA
+    # CHECK DIRECTORIES EXIST INSIDE patches_dir, OTHERWISE CREATE THEM
     for f in list_of_files:
         compute_and_save_patch_from_file(original_dir, f, latest_dir, f, patches_dir, f)
 
