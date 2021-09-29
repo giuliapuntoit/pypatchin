@@ -1,18 +1,13 @@
 from diff_match_patch import diff_match_patch
+from pypatch.patch import read_file_to_text
 
-
-def read_file_to_text(file_path):
-    file = open(file_path, "r")
-    s = ''
-    for line in file:
-        s = s + line
-    return s
+# Compare patched files
 
 
 def compare_latest_vs_generated_file(latest_dir, latest_file, generated_dir, generated_file):
     # Latest and generated files should be mostly equal
 
-    # create diff string
+    # Create diff string
     dmp = diff_match_patch()
 
     latest_path = latest_dir + latest_file

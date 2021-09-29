@@ -8,11 +8,13 @@ To do so, I rely on the high performance patching library [diff-match-patch](htt
 
 ## How to use
 
-Run
+Install requirements, setup, ...
+
+See the ``try_me.py`` and ``check_me.py`` scripts.
 
 ## Examples
 
-Try
+See the ``try_me.py`` and ``check_me.py`` scripts.
 
 ## Extras
 

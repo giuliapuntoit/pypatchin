@@ -1,10 +1,12 @@
 from diff_match_patch import diff_match_patch
 import os
 
+# Patch files
+
 
 # DIFF FOR STRINGS
 def compute_diff_from_strings(old_value, new_value):
-    # create diff string
+    # Create diff string
     dmp = diff_match_patch()
     patches = dmp.patch_make(old_value, new_value)
     diff = dmp.patch_toText(patches)
@@ -14,7 +16,7 @@ def compute_diff_from_strings(old_value, new_value):
 
 
 def apply_diff_to_string(string_to_patch, diff):
-    # apply diff
+    # Apply diff
     dmp = diff_match_patch()
     patches = dmp.patch_fromText(diff)
     new_text, _ = dmp.patch_apply(patches, string_to_patch)
@@ -32,14 +34,14 @@ def read_file_to_text(file_path):
 
 # DIFF FOR FILES
 def compute_and_save_patch_from_file(original_dir, original_file, latest_dir, latest_file, patch_dir, patch_file):
-    # create diff string
+    # Create diff string
 
     # Should automatically add extension .patch to patch_file
 
     original_path = original_dir + original_file
     latest_path = latest_dir + latest_file
 
-    patch_path = patch_dir + patch_file
+    patch_path = patch_dir + patch_file + ".patch"
 
     original_text = read_file_to_text(original_path)
     latest_text = read_file_to_text(latest_path)
@@ -54,11 +56,11 @@ def compute_and_save_patch_from_file(original_dir, original_file, latest_dir, la
 
 
 def apply_patch_to_file(dir_to_patch, file_to_patch, patch_dir, patch_file, patched_file_dir, patched_file):
-    # apply diff saved into patch_file!
+    # Apply diff saved into patch_file!
 
     # Should automatically add extension .patch to patch_file
 
-    patch_path = patch_dir + patch_file
+    patch_path = patch_dir + patch_file + ".patch"
     with open(patch_path, "r") as open_file:
         diff_to_apply = open_file.read()
 
@@ -77,14 +79,17 @@ def apply_patch_to_file(dir_to_patch, file_to_patch, patch_dir, patch_file, patc
 
 
 def compute_and_save_patches_for_list_of_files(list_of_files, original_dir, latest_dir, patches_dir):
-    # Cerca lista di file in original_dir e latest_dir, calcola i patches e li salva con nomi analoghi dentro patched_file_dir
+    # Search a list of file inside original_dir and latest_dir,
+    # compute patches and save them with the same names inside patched_file_dir
+
     # CHECK DIRECTORIES EXIST INSIDE patches_dir, OTHERWISE CREATE THEM
     for f in list_of_files:
         compute_and_save_patch_from_file(original_dir, f, latest_dir, f, patches_dir, f)
 
 
 def apply_all_patches_to_files(list_of_files, patches_dir, original_dir, generated_dir):
-    # Cerca tutti i patches dentro list_of_files dentro patched_files_dir e li applica a original_dir, salva tutti i file generati dentro generated_dir con stessi nomi (path)
-    # NON SERVE IL CHECK CHE LE CARTELLE ESISTANO PERCHE ALTRIMENTI NON AVREBBE SENSO IL PATCH (?)
+    # Search all patches of list_of_files inside patched_files_dir and apply them to original_dir,
+    # save all generated files inside generated_dir with the same names (and paths)
+
     for f in list_of_files:
         apply_patch_to_file(original_dir, f, patches_dir, f, generated_dir, f)

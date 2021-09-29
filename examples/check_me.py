@@ -1,4 +1,4 @@
-from pypatch import patch_files
+from pypatch import patch
 
 
 def main():

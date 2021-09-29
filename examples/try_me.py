@@ -1,4 +1,4 @@
-from pypatch import compare_patched_files
+from pypatch import compare
 
 
 def main():
@@ -13,7 +13,7 @@ def main():
                           ]
 
     # Compare generated files and the version from which we patched
-    compare_patched_files.compare_latest_vs_generated_list_of_files(all_files_to_patch, latest_dir_name, generated_dir_name)
+    compare.compare_latest_vs_generated_list_of_files(all_files_to_patch, latest_dir_name, generated_dir_name)
 
 
 if __name__ == "__main__":
