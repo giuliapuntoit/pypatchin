@@ -1,5 +1,5 @@
 from diff_match_patch import diff_match_patch
-from pypatch.patch import read_file_to_text
+from pypatchin.patch import read_file_to_text
 
 # Compare patched files
 

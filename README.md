@@ -1,6 +1,6 @@
-# pypatch
+# pypatchin
 
-Do you want a fast and clean solution to patch your files and repositories? Use me, a Python **pypatch** package!
+Do you want a fast and clean solution to patch your files and repositories? Use me, a Python **pypatchin** package!
 
 I can patch your text, your files and your entire repositories!
 

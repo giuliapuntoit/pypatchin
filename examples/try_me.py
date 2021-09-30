@@ -1,4 +1,4 @@
-from pypatch import compare
+from pypatchin import compare
 
 
 def main():
