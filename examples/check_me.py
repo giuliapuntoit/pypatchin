@@ -1,32 +1,23 @@
-from pypatchin import patch
+from pypatchin import compare
 
 
 def main():
-
-    # PATCH
-    patch_dir_name = "patches/"
-
-    # ORIGINAL
-    original_dir_name = "original/"
-
-    # LATEST
     latest_dir_name = "latest/"
+    generated_dir_name = "generated/"
 
-    # GENERATED
-    patched_file_dir_name = "generated/"
-
-    # MULTIPLE FILES TO PATCH
     all_files_to_patch = ["each/file/you/wish.py",
                           "maybe/this.py",
                           "simple.py",
                           "README.md",
-                          "each/"
+                          "each/file.sh"
                           ]
 
-    # Generate patches for a list of files and apply them on original files
-    patch_files.compute_and_save_patches_for_list_of_files(all_files_to_patch, original_dir_name, latest_dir_name, patch_dir_name)
+    # Compare generated files and the version from which we patched
+    result = compare.compare_latest_vs_generated_list_of_files(all_files_to_patch, latest_dir_name, generated_dir_name)
+    print(result)
 
-    patch_files.apply_all_patches_to_files(all_files_to_patch, patch_dir_name, original_dir_name, patched_file_dir_name)
+    # Result == True, files are equal
+    # Result == False, files are different
 
 
 if __name__ == "__main__":

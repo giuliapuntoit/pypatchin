@@ -30,5 +30,7 @@ def compare_latest_vs_generated_file(latest_dir, latest_file, generated_dir, gen
 
 
 def compare_latest_vs_generated_list_of_files(list_of_files, latest_dir, generated_dir):
+    results = []
     for f in list_of_files:
-        compare_latest_vs_generated_file(latest_dir, f, generated_dir, f)
+        results.append(compare_latest_vs_generated_file(latest_dir, f, generated_dir, f))
+    return results
